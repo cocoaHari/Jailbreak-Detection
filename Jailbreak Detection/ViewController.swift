@@ -9,10 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    let cydiaURL = "/Applications/Cydia.app"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if FileManager.default.fileExists(atPath: cydiaURL){
+            
+            
+            statusLabel.text = "Jailbroken"
+            
+        }
+        
+        else {
+            
+            statusLabel.text = "Jailed"
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
